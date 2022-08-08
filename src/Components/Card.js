@@ -5,13 +5,11 @@ export default function Card({ data, searchText }) {
   return (
     <div className="grid-container">
       {data &&
-        data
-        .map((val) => {
+        data.map((val) => {
           return (
             <>
               <Link to={`/resource/${val.id}`}>
                 <div className="grid-item" key={val.id}>
-                  {console.log(val)}
                   <div className="div1">
                     {<img className="img2" src={val.icon_url} />}
                     <span className="title">{val.title}</span>

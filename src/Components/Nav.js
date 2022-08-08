@@ -7,15 +7,17 @@ import Search from "./Search";
 export default function Nav() {
   const [active, setActive] = useState("Resource");
   const [data, setData] = useState([]);
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
 
   const filteredData = useMemo(() => {
-    return data.filter(resource => resource.title.toLowerCase().includes(searchText.toLowerCase()))
-  }, [searchText, data])
+    return data.filter((resource) =>
+      resource.title.toLowerCase().includes(searchText.toLowerCase())
+    );
+  }, [searchText, data]);
 
   const onSearchChange = (val) => {
     setSearchText(val);
-  }
+  };
 
   useEffect(() => {
     fetch(
@@ -49,8 +51,10 @@ export default function Nav() {
       </div>
 
       <div className="main-container">
-        <Search value={searchText} onSearchChange={onSearchChange}/>
-        {active === "Resource" && <Card data={filteredData} searchText={searchText}/>}
+        <Search value={searchText} onSearchChange={onSearchChange} />
+        {active === "Resource" && (
+          <Card data={filteredData} searchText={searchText} />
+        )}
         {active === "Request" && <Request data={filteredData} />}
         {active === "Users" && <Users data={filteredData} />}
       </div>
