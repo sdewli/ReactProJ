@@ -16,7 +16,9 @@ export default function Card({ data, searchText }) {
                     <span className="category">{val.category}</span>
                   </div>
                   <div>
-                    <span className="link">{val.link}</span>
+                    <span className="link">
+                      <a href={val.link}>{val.link} </a>
+                    </span>
                     <span className="description">{val.description}</span>
                   </div>
                 </div>

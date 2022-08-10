@@ -7,7 +7,7 @@ import "./App.css";
 
 export default function Details() {
   const [data, setData] = useState([]);
-  const Navigate=useNavigate();
+  const Navigate = useNavigate();
   useEffect(() => {
     fetch(
       `https://media-content.ccbp.in/website/react-assignment/resources.json`
@@ -16,12 +16,12 @@ export default function Details() {
       .then((actualData) => setData(actualData));
   }, []);
 
-  function handleClick(){
-  Navigate('/')
+  function handleClick() {
+    Navigate("/");
   }
   return (
     <div>
-      <button onClick={handleClick}>{`<`}</button>
+      <button className="btn3" onClick={handleClick}>{`<`}</button>
       {`Resources`}
       <Resource data={data} />
       <Table />
